@@ -1,8 +1,8 @@
 'use strict';
 const snoowrap = require('snoowrap');
 const fs = require('fs');
-const {user, pass, client, secret} = require('./Credentials')
-
+const {user, pass, client, secret} = require('./Credentials');
+const outputFolder = './out';
 // NOTE: The following examples illustrate how to use snoowrap. However, hardcoding
 // credentials directly into your source code is generally a bad idea IN practice (especially
 // if you're also making your source code public). Instead, it's better to either (a) use a separate
@@ -102,6 +102,9 @@ const X = async () => {
   if (process.argv.length > 2) {
     ids = process.argv.splice(2);
   }
+  if (!fs.existsSync(outputFolder)){
+    fs.mkdirSync(outputFolder);
+}
   ids.forEach( async (id) => {await getAll(id)});
 
 }

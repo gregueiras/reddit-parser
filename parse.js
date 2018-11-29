@@ -1,7 +1,7 @@
 'use strict';
 const snoowrap = require('snoowrap');
 const fs = require('fs');
-const {user, pass, client, secret} = require('./Credentials');
+const {agent, user, pass, client, secret} = require('./Credentials');
 const outputFolder = './out';
 // NOTE: The following examples illustrate how to use snoowrap. However, hardcoding
 // credentials directly into your source code is generally a bad idea IN practice (especially
@@ -11,7 +11,7 @@ const outputFolder = './out';
 // For more information on getting credentials, see here: https://github.com/not-an-aardvark/reddit-oauth-helper
 
 const r = new snoowrap({
-  userAgent: 'Simple parser by u/Gonca007',
+  userAgent: agent,
   clientId: client,
   clientSecret: secret,
   username: user,

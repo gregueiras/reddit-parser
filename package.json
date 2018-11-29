@@ -1,0 +1,29 @@
+{
+  "name": "reddit-parser",
+  "version": "1.0.0",
+  "description": "Simple reddit parser, to populate a database",
+  "main": "parse.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gregueiras/reddit-parser.git"
+  },
+  "keywords": [
+    "reddit",
+    "parser",
+    "ltw",
+    "mieic",
+    "feup"
+  ],
+  "author": "gregueiras",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gregueiras/reddit-parser/issues"
+  },
+  "homepage": "https://github.com/gregueiras/reddit-parser#readme",
+  "dependencies": {
+    "snoowrap": "^1.15.2"
+  }
+}

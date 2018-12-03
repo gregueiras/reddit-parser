@@ -72,15 +72,16 @@ const getPost = async (linkID) => {
 async function getAll(id) {
   let users = new Set();
   let channels = new Set();
-  const comments = await getComments(id);
+  const tempComments = await getComments(id);
+  const comments = tempComments.comments.reverse();
   const res = await getPost(id);
-  const streamComments = fs.createWriteStream(`./out/${comments.id}_comments.sql`, {
+  const streamComments = fs.createWriteStream(`./out/${tempComments.id}_comments.sql`, {
     flags: "w"
   });
 
   streamComments.write('PRAGMA foreign_keys = on;');
 
-  comments.comments.forEach(comment => {
+  comments.forEach(comment => {
     writeStory(streamComments, comment);
     users.add(comment.author);
   });
@@ -117,7 +118,7 @@ function processComment(comment, comments) {
     link: null,
     channel: null,
     date: comment.created,
-    title: null,
+    title: '',
     image: null
   };
   const id = comment.id.split('_');

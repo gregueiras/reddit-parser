@@ -1,5 +1,7 @@
 Credentials.js
 Names.js
+out/*
+
 # Logs
 logs
 *.log
